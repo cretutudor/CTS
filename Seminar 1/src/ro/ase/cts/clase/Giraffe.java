@@ -21,4 +21,9 @@ public class Giraffe extends Animal{
 		this.inaltime = inaltime;
 	}
 
+	@Override
+	public void walks() {
+		System.out.println("Girafa merge cu capul pe sus");
+	}
+
 }

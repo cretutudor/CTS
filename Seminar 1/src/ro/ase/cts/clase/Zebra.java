@@ -6,5 +6,10 @@ public class Zebra extends Animal {
 		super(nume);
 		
 	}
+
+	@Override
+	public void walks() {
+		System.out.println("Zebra merge pe 4 picioare");
+	}
 	
 }

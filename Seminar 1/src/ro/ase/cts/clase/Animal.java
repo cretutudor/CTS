@@ -1,6 +1,8 @@
 package ro.ase.cts.clase;
 
-public abstract class Animal {
+import ro.ase.cts.interfete.Walk;
+
+public abstract class Animal implements Walk{
 	private String nume;
 	
 	public Animal(String nume) {

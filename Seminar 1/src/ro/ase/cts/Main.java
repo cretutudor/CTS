@@ -20,6 +20,7 @@ public class Main {
 		zoo.add(a4);
 		
 		zoo.feedAnimals();
+		zoo.movingAnimals();
 	}
 
 }

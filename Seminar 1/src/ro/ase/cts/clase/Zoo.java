@@ -40,4 +40,10 @@ public class Zoo {
 			this.zookeeper.feed(animal);
         } 
 	}
+	
+	public void movingAnimals() {
+		for (Animal animal : this.animals)	{ 
+			animal.walks();
+        } 
+	}
 }
