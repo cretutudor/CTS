@@ -14,17 +14,18 @@ public class Program {
 		listaAplicanti = readerAplicants.readAplicants();
 		return listaAplicanti;
 	}
-	
+
 	public static void main(String[] args) {
 		List<Aplicant> listaAplicanti;
 		try {
 			listaAplicanti = readAplicants(new ReaderAngajati("angajati.txt"));
-			for(Aplicant aplicant : listaAplicanti)
+			for (Aplicant aplicant : listaAplicanti) {
 				System.out.println(aplicant.toString());
+				aplicant.afiseazaSumaFinantata();
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }
