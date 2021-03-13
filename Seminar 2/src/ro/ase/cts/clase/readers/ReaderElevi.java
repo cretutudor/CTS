@@ -16,26 +16,21 @@ public class ReaderElevi extends ReaderAplicants{
 	
 	@Override
 	public List<Aplicant> readAplicants() throws FileNotFoundException {
-		Scanner input2 = new Scanner(new File(super.file));
-		input2.useDelimiter(",|\n");
+		Scanner input = new Scanner(new File(super.file));
+		input.useDelimiter(",|\n");
 		List<Aplicant> elevi = new ArrayList<Aplicant>();
-
-		while (input2.hasNext()) {
-			String nume = input2.next();
-			String prenume = input2.next();
-			int varsta = input2.nextInt();
-			int punctaj = input2.nextInt();
-			int nr = input2.nextInt();
-			String[] vect = new String[5];
-			for (int i = 0; i < nr; i++)
-				vect[i] = input2.next();
-			int clasa = input2.nextInt();
-			String tutore = input2.next();
-			Elev e = new Elev(nume, prenume, varsta, punctaj, nr, vect, clasa, tutore);
-			elevi.add(e);
+		
+		while (input.hasNext()) {
+			Elev elev = new Elev();
+			super.citesteAplicant(input, elev);
+			int clasa = input.nextInt();
+			String tutore = input.next();
+			elev.setClasa(clasa);
+			elev.setTutore(tutore);
+			elevi.add(elev);
 		}
 
-		input2.close();
+		input.close();
 		return elevi;
 	}
 }
