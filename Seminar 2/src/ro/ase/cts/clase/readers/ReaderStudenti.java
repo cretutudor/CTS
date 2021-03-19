@@ -9,13 +9,13 @@ import java.util.Scanner;
 import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Student;
 
-public class ReaderStudents extends ReaderAplicants {
-	public ReaderStudents(String file) {
+public class ReaderStudenti extends ReaderAplicanti {
+	public ReaderStudenti(String file) {
 		super(file);
 	}
 
 	@Override
-	public List<Aplicant> readAplicants() throws FileNotFoundException {
+	public List<Aplicant> citesteAplicanti() throws FileNotFoundException {
 		Scanner input = new Scanner(new File(super.file));
 		input.useDelimiter(",|\n");
 		List<Aplicant> studenti = new ArrayList<Aplicant>();
@@ -23,10 +23,10 @@ public class ReaderStudents extends ReaderAplicants {
 		while (input.hasNext()) {
 			Student student = new Student();
 			super.citesteAplicant(input, student);
-			int an_studii = input.nextInt();
+			int anStudii = input.nextInt();
 			String facultate = (input.next()).toString();
 			student.setFacultate(facultate);
-			student.setAn_studii(an_studii);
+			student.setAnStudii(anStudii);
 			studenti.add(student);
 		}
 		input.close();

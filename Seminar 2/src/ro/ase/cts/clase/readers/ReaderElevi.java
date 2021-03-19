@@ -9,13 +9,13 @@ import java.util.Scanner;
 import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Elev;
 
-public class ReaderElevi extends ReaderAplicants{	
+public class ReaderElevi extends ReaderAplicanti{	
 	public ReaderElevi(String file) {
 		super(file);
 	}
 	
 	@Override
-	public List<Aplicant> readAplicants() throws FileNotFoundException {
+	public List<Aplicant> citesteAplicanti() throws FileNotFoundException {
 		Scanner input = new Scanner(new File(super.file));
 		input.useDelimiter(",|\n");
 		List<Aplicant> elevi = new ArrayList<Aplicant>();
@@ -29,7 +29,6 @@ public class ReaderElevi extends ReaderAplicants{
 			elev.setTutore(tutore);
 			elevi.add(elev);
 		}
-
 		input.close();
 		return elevi;
 	}

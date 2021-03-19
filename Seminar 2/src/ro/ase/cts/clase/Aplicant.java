@@ -7,21 +7,21 @@ public abstract class Aplicant {
 	protected String prenume;
 	protected int varsta;
 	protected int punctaj;
-	protected int nr_proiecte;
-	protected String[] denumireProiect;
+	protected int nrProiecte;
+	protected String[] proiecte;
 
 	public Aplicant() {
 		super();
 	}
 
-	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect) {
+	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nrProiecte, String[] proiecte) {
 		super();
 		this.nume = nume;
 		this.prenume = prenume;
 		this.varsta = varsta;
 		this.punctaj = punctaj;
-		this.nr_proiecte = nr_proiecte;
-		this.denumireProiect = denumireProiect;
+		this.nrProiecte = nrProiecte;
+		this.proiecte = proiecte;
 	}
 
 	public String getNume() {
@@ -48,13 +48,6 @@ public abstract class Aplicant {
 		this.varsta = varsta;
 	}
 
-	public void afiseazaStatutPeProiect(Proiect proiect) {
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Aplicantul ").append(nume).append(" ").append(prenume);
-		stringBuilder.append(punctaj > proiect.getPragAcceptare() ? " a fost acceptat." : " nu a fost acceptat.");
-		System.out.println(stringBuilder);
-	}
-
 	public int getPunctaj() {
 		return punctaj;
 	}
@@ -63,20 +56,27 @@ public abstract class Aplicant {
 		this.punctaj = punctaj;
 	}
 
-	public int getNr_proiecte() {
-		return nr_proiecte;
+	public int getNrProiecte() {
+		return nrProiecte;
 	}
 
-	public void setProiecte(int nr_proiecte, String[] denumireProiect) {
-		this.nr_proiecte = nr_proiecte;
-		this.denumireProiect = denumireProiect;
+	public void setProiecte(int nrProiecte, String[] proiecte) {
+		this.nrProiecte = nrProiecte;
+		this.proiecte = proiecte;
 	}
 
-	public String[] getDenumireProiect() {
-		return denumireProiect;
+	public String[] getProiecte() {
+		return proiecte;
 	}
 
 	public abstract void afiseazaSumaFinantata();
+	
+	public void afiseazaStatutPeProiect(Proiect proiect) {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("Aplicantul ").append(nume).append(" ").append(prenume);
+		stringBuilder.append(punctaj > proiect.getPragAcceptare() ? " a fost acceptat." : " nu a fost acceptat.");
+		System.out.println(stringBuilder);
+	}
 
 	public String compunereStringAplicant(int sumaFinantata, String tipAplicant) {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -101,10 +101,10 @@ public abstract class Aplicant {
 		builder.append(varsta);
 		builder.append(", punctaj=");
 		builder.append(punctaj);
-		builder.append(", nr_proiecte=");
-		builder.append(nr_proiecte);
-		builder.append(", denumireProiect=");
-		builder.append(Arrays.toString(denumireProiect));
+		builder.append(", nrProiecte=");
+		builder.append(nrProiecte);
+		builder.append(", proiecte=");
+		builder.append(Arrays.toString(proiecte));
 		return builder.toString();
 	}
 

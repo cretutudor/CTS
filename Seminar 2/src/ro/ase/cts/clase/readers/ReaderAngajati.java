@@ -9,13 +9,13 @@ import java.util.Scanner;
 import ro.ase.cts.clase.Angajat;
 import ro.ase.cts.clase.Aplicant;
 
-public class ReaderAngajati extends ReaderAplicants{	
+public class ReaderAngajati extends ReaderAplicanti{	
 	public ReaderAngajati(String file) {
 		super(file);
 	}
 
 	@Override
-	public List<Aplicant> readAplicants() throws FileNotFoundException {
+	public List<Aplicant> citesteAplicanti() throws FileNotFoundException {
 		Scanner input = new Scanner(new File(super.file));
 		input.useDelimiter(",");
 		List<Aplicant> angajati = new ArrayList<Aplicant>();

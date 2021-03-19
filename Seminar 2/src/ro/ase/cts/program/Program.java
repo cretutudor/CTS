@@ -6,13 +6,13 @@ import java.util.List;
 import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Proiect;
 import ro.ase.cts.clase.readers.ReaderAngajati;
-import ro.ase.cts.clase.readers.ReaderAplicants;
+import ro.ase.cts.clase.readers.ReaderAplicanti;
 
 public class Program {
 
-	public static List<Aplicant> readAplicants(ReaderAplicants readerAplicants) throws FileNotFoundException {
+	public static List<Aplicant> citesteAplicanti(ReaderAplicanti readerAplicanti) throws FileNotFoundException {
 		List<Aplicant> listaAplicanti;
-		listaAplicanti = readerAplicants.readAplicants();
+		listaAplicanti = readerAplicanti.citesteAplicanti();
 		return listaAplicanti;
 	}
 
@@ -27,10 +27,9 @@ public class Program {
 	public static void main(String[] args) {
 		List<Aplicant> listaAplicanti;
 		try {
-			listaAplicanti = readAplicants(new ReaderAngajati("angajati.txt"));
+			listaAplicanti = citesteAplicanti(new ReaderAngajati("angajati.txt"));
 			afiseazaAplicant(listaAplicanti);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
