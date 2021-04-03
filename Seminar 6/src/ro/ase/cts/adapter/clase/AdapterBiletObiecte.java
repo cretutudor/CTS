@@ -17,5 +17,4 @@ public class AdapterBiletObiecte implements BiletOnline{
 	public void rezervaBiletOnline() {
 		this.bilet.rezerva();
 	}
-
 }
