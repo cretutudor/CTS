@@ -29,8 +29,13 @@ public class Student {
 	        return note;
 	    }
 
-	    public void adaugaNota(int nota){
-	        note.add(nota);
+	    public void adaugaNota(int nota) {
+	    	if (nota >= 1 && nota <= 10) {
+	    		note.add(nota);
+	    	}
+	    	else {
+	    		throw new IllegalArgumentException();
+	    	}
 	    }
 
 	    public int getNota(int index){
