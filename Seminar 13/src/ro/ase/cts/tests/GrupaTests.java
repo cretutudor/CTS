@@ -4,9 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import ro.ase.cts.Grupa;
 import ro.ase.cts.Student;
+import ro.ase.cts.testCategories.TestsGetPromovabilitate;
+import ro.ase.cts.testCategories.UrgentTests;
 
 public class GrupaTests {
 	@Test
@@ -48,6 +51,7 @@ public class GrupaTests {
 		assertNotNull(grupa.getStudenti());
 	}
 	
+	@Category( {TestsGetPromovabilitate.class, UrgentTests.class} )
 	@Test
 	public void testGetPromovabilitateRight() {
 		Grupa grupa = new Grupa(1078);
@@ -64,6 +68,7 @@ public class GrupaTests {
 		assertEquals(0.8, grupa.getPromovabilitate(), 0.001);
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitateLimitaSuperioara() {
 		Grupa grupa = new Grupa(1078);
@@ -75,6 +80,7 @@ public class GrupaTests {
 		assertEquals(1, grupa.getPromovabilitate(), 0.001);
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitateLimitaInferioara() {
 		Grupa grupa = new Grupa(1078);
@@ -86,6 +92,7 @@ public class GrupaTests {
 		assertEquals(0, grupa.getPromovabilitate(), 0.001);
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitateInverse() {
 		int nrIntegralisti = 31;
@@ -106,12 +113,14 @@ public class GrupaTests {
 		assertEquals(nrIntegralisti, grupa.getPromovabilitate() * grupa.getStudenti().size(), 0.001);
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitateError() {
 		Grupa grupa = new Grupa(1078);
 		assertEquals(0, grupa.getPromovabilitate(), 0.001);
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitateCardinalityAreRestanta() {
 		Grupa grupa = new Grupa(1078);
@@ -121,6 +130,7 @@ public class GrupaTests {
 		assertEquals(0, grupa.getPromovabilitate(), 0.001);
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitateCardinalityNuAreRestanta() {
 		Grupa grupa = new Grupa(1078);

@@ -3,10 +3,12 @@ package ro.ase.cts.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import ro.ase.cts.Grupa;
 import ro.ase.cts.mocks.StudentDummy;
 import ro.ase.cts.mocks.StudentFake;
+import ro.ase.cts.testCategories.TestsGetPromovabilitate;
 
 public class GrupaMockTests {
 
@@ -20,6 +22,7 @@ public class GrupaMockTests {
 		assertEquals(1, grupa.getStudenti().size());
 	}
 	
+	@Category(TestsGetPromovabilitate.class)
 	@Test
 	public void testGetPromovabilitate() {
 		StudentDummy student = new StudentDummy();
